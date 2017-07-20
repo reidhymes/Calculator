@@ -12,40 +12,39 @@ TYPED_TEST_P(CalcOperationTestFixture, VerifyMenuText)
 	EXPECT_EQ(_testData.operation.GetMenuText(), _testData.expectedMenuText);
 }
 
-// Verifies the derived implementation of CalcOperation::PromptForAdditionalOperand() is called
+// Verifies the additional input needed for particular operations is received.
 TYPED_TEST_P(CalcOperationTestFixture, VerifyOperandInput)
 {
 	OperandDataType result = _testData.firstOperand;
 
-	// Capture Stdout during the execution of the operation
-	// to verify the prompt for additional operands is shown.
-	testing::internal::CaptureStdout();
-
-	WriteToStdin(_testData.secondOperandInput);
-	_testData.operation.Execute(result);
-
-	std::string output = testing::internal::GetCapturedStdout();
+	CollectStdoutAndRunCalcOperation(result, _testData.secondOperandInput);
 
 	EXPECT_EQ(result, _testData.expectedValue);
-	EXPECT_EQ(output, _testData.expectedStdout);
+	EXPECT_EQ(GetTestStdout(), _testData.expectedStdout);
 }
 
 TYPED_TEST_P(CalcOperationTestFixture, VerifyOperationWithNegativeAndPositiveValues)
 {
 	OperandDataType result = _testData.positiveNum;
-	testing::internal::CaptureStdout();
 
-	WriteToStdin(_testData.negativeNum);
-	_testData.operation.Execute(result);
-
-	std::string output = testing::internal::GetCapturedStdout();
+	CollectStdoutAndRunCalcOperation(result, _testData.negativeNum);
 
 	EXPECT_EQ(result, _testData.negativePosResult);
+	EXPECT_EQ(GetTestStdout(), _testData.expectedStdout);
 }
 
-// Register the templated test fixture and data
+
+// Register the templated tests with Google Test
 REGISTER_TYPED_TEST_CASE_P(CalcOperationTestFixture, VerifyMenuText, VerifyOperandInput, VerifyOperationWithNegativeAndPositiveValues);
 
-typedef testing::Types<AddCalcOperationData, SubtractCalcOperationData, MultiplyCalcOperationData,
-	DivideCalcOperationData, InvalidCalcOperationData, QuitCalcOperationData, ClearMemCalcOperationData> TwoOpCalcOperationTypes;
+// Define the test fixtures to use for each execution of the above tests.
+typedef testing::Types<AddCalcOperationData,
+					   SubtractCalcOperationData, 
+	                   MultiplyCalcOperationData,
+					   DivideCalcOperationData,
+					   InvalidCalcOperationData, 
+					   QuitCalcOperationData, 
+					   ClearMemCalcOperationData> TwoOpCalcOperationTypes;
+
+// Let Google Test know what tests to run with what fixtures.
 INSTANTIATE_TYPED_TEST_CASE_P(CalcOperationTests, CalcOperationTestFixture, TwoOpCalcOperationTypes);
