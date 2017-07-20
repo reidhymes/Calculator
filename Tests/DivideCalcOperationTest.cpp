@@ -21,7 +21,7 @@ TEST_F(StdinStreamTester, DivideByZero)
 }
 
 // Verify an underflow error occurs.
-// This is a limitation of the IEEE 754 floating point type.
+// This is a limitation of the IEEE 754 floating point/double type.
 TEST_F(StdinStreamTester, DivideUnderflow)
 {
 	DivideCalcOperation op;

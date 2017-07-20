@@ -19,7 +19,7 @@ struct CalcOperationData
 		OperandDataType negPosResult)
 		: expectedMenuText(menuText),
 		  expectedStdout(expectedOut),
-		  result(res),
+		  expectedValue(res),
 		  firstOperand(first),
 		  secondOperandInput(second),
 		  negativeNum(-7.0f),
@@ -30,7 +30,7 @@ struct CalcOperationData
 	T operation;
 	string expectedMenuText;
 	string expectedStdout;
-	OperandDataType result;
+	OperandDataType expectedValue;
 	OperandDataType firstOperand;
 	OperandDataType secondOperandInput;
 	OperandDataType negativeNum;
@@ -63,7 +63,7 @@ struct MultiplyCalcOperationData : CalcOperationData<MultiplyCalcOperation>
 struct DivideCalcOperationData : CalcOperationData<DivideCalcOperation>
 {
 	DivideCalcOperationData()
-		: CalcOperationData(10 / 15.5f, 10, 15.5, "Divide", "Value to divide by: ", -8/7.0f)
+		: CalcOperationData(10 / static_cast<long double>(15.5f), 10, 15.5, "Divide", "Value to divide by: ", -8/static_cast<long double>(7.0))
 	{}
 };
 
@@ -77,7 +77,7 @@ struct QuitCalcOperationData : CalcOperationData<QuitCalcOperation>
 struct InvalidCalcOperationData : CalcOperationData<InvalidCalcOperation>
 {
 	InvalidCalcOperationData()
-		: CalcOperationData(0, 0, 15.5, "Invalid menu selection.", "", 8)
+		: CalcOperationData(0, 0, 15.5, "Invalid menu selection.", "Invalid menu selection.\n", 8)
 	{}
 };
 

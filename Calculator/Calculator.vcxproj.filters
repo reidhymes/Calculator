@@ -51,9 +51,6 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CalcOperation.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="InvalidCalcOperation.cpp">
       <Filter>Source Files\operations</Filter>
     </ClCompile>

@@ -27,7 +27,7 @@ TEST_F(StdinStreamTester, MultiplyLargeNumbers)
 	testing::internal::CaptureStdout();
 
 	WriteToStdin(2);
-	OperandDataType result = FLT_MAX;
+	OperandDataType result = LDBL_MAX;
 	op.Execute(result);
 
 	std::string output = testing::internal::GetCapturedStdout();
@@ -43,8 +43,8 @@ TEST_F(StdinStreamTester, MultiplyUnderflow)
 
 	testing::internal::CaptureStdout();
 
-	WriteToStdin(FLT_MIN);
-	OperandDataType result = FLT_MIN;
+	WriteToStdin(LDBL_MIN);
+	OperandDataType result = LDBL_MIN;
 	op.Execute(result);
 
 	std::string output = testing::internal::GetCapturedStdout();

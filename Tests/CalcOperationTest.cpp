@@ -26,7 +26,7 @@ TYPED_TEST_P(CalcOperationTestFixture, VerifyOperandInput)
 
 	std::string output = testing::internal::GetCapturedStdout();
 
-	EXPECT_EQ(result, _testData.result);
+	EXPECT_EQ(result, _testData.expectedValue);
 	EXPECT_EQ(output, _testData.expectedStdout);
 }
 

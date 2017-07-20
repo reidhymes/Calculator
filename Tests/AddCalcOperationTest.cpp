@@ -10,8 +10,8 @@ TEST_F(StdinStreamTester, AddOverflow)
 
 	testing::internal::CaptureStdout();
 
-	WriteToStdin(FLT_MAX);
-	OperandDataType result = FLT_MAX;
+	WriteToStdin(LDBL_MAX);
+	OperandDataType result = LDBL_MAX;
 	op.Execute(result);
 
 	std::string output = testing::internal::GetCapturedStdout();

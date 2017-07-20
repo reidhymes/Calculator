@@ -210,7 +210,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="CalcOperation.cpp" />
     <ClCompile Include="Calculator.cpp" />
     <ClCompile Include="CalculatorExecutor.cpp" />
     <ClCompile Include="ClearMemCalcOperation.cpp" />
