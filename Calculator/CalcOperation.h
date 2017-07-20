@@ -14,7 +14,7 @@
 
 using std::string;
 
-using OperandDataType = float;
+using OperandDataType = long double;
 
 class CalcOperation
 {

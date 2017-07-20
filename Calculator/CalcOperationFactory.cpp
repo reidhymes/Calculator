@@ -11,7 +11,6 @@
 #include "MultiplyCalcOperation.h"
 #include "DivideCalcOperation.h"
 #include "ClearMemCalcOperation.h"
-#include "OperationTypes.h"
 
 using std::make_unique;
 
@@ -42,5 +41,4 @@ unique_ptr<CalcOperation> CalcOperationFactory::GetOperation(const OperationType
 	default:
 		return make_unique<InvalidCalcOperation>();
 	}
-	return nullptr;
 }

@@ -240,3 +240,7 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+
+# VS build files
+Calculator/DebugStaticLib/
+DebugStaticLib/
