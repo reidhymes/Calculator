@@ -18,11 +18,11 @@ public:
 	void Run();
 
 private:
-	MOCKABLE bool isQuitMenuOptionSelected(const MenuOption& menuChoice);
-	MOCKABLE void DisplayMenuText();
-	MOCKABLE void DisplayWelcomeMessage();
-	MOCKABLE void GetMenuSelection(MenuOption & menuChoice);
-	MOCKABLE void ProcessMenu(MenuOption & menuChoice);
+	bool isQuitMenuOptionSelected(const MenuOption& menuChoice);
+	void DisplayMenuText();
+	void DisplayWelcomeMessage();
+	void GetMenuSelection(MenuOption & menuChoice);
+	void ProcessMenu(MenuOption & menuChoice);
 
 	Calculator _calc;
 };
