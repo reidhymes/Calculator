@@ -19,3 +19,4 @@ TEST_F(StdinStreamTester, AddOverflow)
 	EXPECT_EQ(result, INFINITY);
 	EXPECT_EQ(op.GetError(), BOUNDARY_ERROR);
 }
+ 

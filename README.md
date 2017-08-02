@@ -6,10 +6,7 @@ This ReadMe is suppose to help understand the reasoning behind this particular i
 This calculator is very abstracted. In industry I'd argue that this is probably too abstract for how simplistic of a calculator 
 it is. I wrote this calculator to show my clean code abilities rather than a practical implementation of a simple calculator.
 
-If you look through the code you will see a CalcOperation class, this class can take one operand to complete its operation.
-I added another abstract class TwoOperandCalcOperation which takes two operands. I could just as easily add another abstraction
-for operations that require more than two operands via Variable Arg Lists, but decided that was over engineering an already
-robust calculator.
+As one Senior software engineer put it, "This is the Cadillac of calculators."
 
 The goal of the CalcOperation class was to make the features of a calculator's operations extendable. To create a new CalcOperation,
 simply create a new derived class, add an enumerated value to OperationTypes.h as well as add a switch case to OperationFactoryImpl.cpp
